@@ -1,0 +1,9 @@
+1st Terminal
+
+javac HotelServiceInterface.java HotelServer.java HotelClient.java
+java HotelServer
+
+
+2nd Terminal
+
+java HotelClient
