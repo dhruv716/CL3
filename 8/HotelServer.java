@@ -1,12 +1,14 @@
-import java.rmi.*;
-import java.rmi.server.*;
-import java.rmi.registry.*;
-import java.util.*;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HotelServer extends UnicastRemoteObject implements HotelServiceInterface {
     private Map<Integer, String> bookedRooms;
 
-    public HotelServer() throws RemoteException {
+    protected HotelServer() throws RemoteException {
         bookedRooms = new HashMap<>();
     }
 
@@ -37,10 +39,9 @@ public class HotelServer extends UnicastRemoteObject implements HotelServiceInte
         return new HashMap<>(bookedRooms);
     }
 
-    // main method for BlueJ
     public static void main(String[] args) {
         try {
-            LocateRegistry.createRegistry(1099);
+            LocateRegistry.createRegistry(1099); // Start RMI registry
             HotelServer server = new HotelServer();
             Naming.rebind("HotelService", server);
             System.out.println("Hotel Server is running...");
