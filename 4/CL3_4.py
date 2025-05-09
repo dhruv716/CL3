@@ -36,31 +36,25 @@ if __name__ == "__main__":
 
 """
 
-Absolutely! Here are concise 4–6 line answers for each question on fuzzy logic:
+What are the common load balancing algorithms?
+Common load balancing algorithms include:
 
----
+Round-Robin: Evenly distributes requests in a rotating order.
+Least Connections: Chooses the server with the fewest active connections.
+IP Hashing: Uses client IP to consistently assign a server.
+Weighted Round-Robin: Distributes based on server capacities.
+Random: Assigns requests to a randomly selected server.
 
-**1. Explain the concept of a fuzzy set and its representation:**
-A fuzzy set is a class of objects with a continuum of membership grades between 0 and 1. Unlike classical sets (where elements either belong or don’t), fuzzy sets allow partial membership. It's represented as a set of ordered pairs: $A = \{(x, \mu_A(x))\}$, where $\mu_A(x)$ is the membership function.
+2. How does the round-robin algorithm distribute requests among servers?
+Round-robin cycles through servers sequentially, assigning each incoming request to the next server in line. 
+After reaching the last server, it loops back to the first, ensuring an even distribution of traffic 
+regardless of server load or response time.
 
----
+3. How does load balancing contribute to the scalability and efficiency of a distributed system?
+Load balancing prevents overload on any single server, allowing requests to be handled smoothly across multiple servers. 
+This improves system responsiveness, ensures high availability, allows for horizontal scaling, 
+and optimizes resource utilization—key factors for efficient, scalable distributed systems.
 
-**2. Define a fuzzy relation and its purpose in fuzzy logic:**
-A fuzzy relation is an extension of a classical relation where the degree of relationship between elements is expressed with values from 0 to 1. It models uncertainty and vague associations between elements of two or more fuzzy sets, commonly used in fuzzy inference systems.
-
----
-
-**3. How is the Cartesian product of two fuzzy sets computed?**
-The Cartesian product of fuzzy sets $A$ and $B$ forms a fuzzy relation $R$, where each pair $(x, y)$ has a membership value $\mu_R(x, y) = \min[\mu_A(x), \mu_B(y)]$. It combines elements of both sets with the minimum of their membership values.
-
----
-
-**4. Discuss the steps involved in performing max-min composition on fuzzy relations:**
-
-* Take two fuzzy relations $R$ (from X to Y) and $S$ (from Y to Z).
-* For each pair $(x, z)$, compute the minimum of $\mu_R(x, y)$ and $\mu_S(y, z)$ for all $y$.
-* Then take the maximum of these minimum values.
-* The result is a new fuzzy relation $T$ from X to Z, representing composed inference.
 
 
 This Python program simulates **load balancing** across multiple servers using two algorithms: **Round Robin** and **Random Selection**.
